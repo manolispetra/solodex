@@ -1,0 +1,145 @@
+/* ── Layout ── */
+.slotWrap{display:flex;flex-direction:column;gap:0;padding:0}
+.slotHeader{display:flex;align-items:center;justify-content:space-between;padding:14px 0 12px;border-bottom:1px solid var(--border);margin-bottom:14px;flex-wrap:wrap;gap:12px}
+.slotTitle{font-size:18px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin-bottom:2px}
+.slotSub{font-size:10px;color:var(--text-dim)}
+.slotStats{display:flex;gap:8px}
+.statBox{text-align:center;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:6px 12px}
+.statNum{display:block;font-family:var(--font-mono);font-size:16px;font-weight:500;color:var(--green);line-height:1}
+.statLbl{font-size:8px;color:var(--text-mute);letter-spacing:.1em;text-transform:uppercase}
+
+/* ── Slot body: machine + win panel side by side ── */
+.slotBody{display:flex;gap:16px;align-items:flex-start}
+@media(max-width:900px){.slotBody{flex-direction:column}}
+
+/* ── Machine column ── */
+.machineWrap{display:flex;align-items:center;gap:4px;flex-shrink:0}
+
+/* Payline number strips */
+.plCol{display:flex;flex-direction:column;gap:2px;flex-shrink:0}
+.plNum{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:900;border:1px solid;opacity:.35;transition:all .2s;font-family:var(--font-mono)}
+.plActive{opacity:1!important;box-shadow:0 0 6px currentColor}
+
+/* Reels frame */
+.reelsFrame{
+  background:#020602;border-radius:10px;border:2px solid #1a3a1a;
+  overflow:hidden;position:relative;
+  box-shadow:inset 0 0 30px rgba(0,0,0,.8),0 0 20px rgba(34,197,94,.06);
+}
+.reels{display:flex;gap:2px;padding:6px}
+
+/* Individual reel */
+.reel{
+  display:flex;flex-direction:column;gap:4px;
+  flex:0 0 auto;position:relative;
+  border-right:1px solid #0d1a0d;padding:0 3px;
+}
+.reel:last-child{border-right:none}
+
+/* Blur fade top/bottom per reel — like BBB */
+.reelBlurTop,.reelBlurBot{
+  position:absolute;left:0;right:0;height:28px;pointer-events:none;z-index:4;
+}
+.reelBlurTop{top:0;background:linear-gradient(180deg,rgba(2,6,2,.95),rgba(2,6,2,0))}
+.reelBlurBot{bottom:0;background:linear-gradient(0deg,rgba(2,6,2,.95),rgba(2,6,2,0))}
+
+.reelCell{display:flex;align-items:center;justify-content:center}
+
+/* Spinning reel — symbols blur+scroll */
+.reelSpinning .circSym,
+.reelSpinning .circSymLetter{
+  animation:symScroll .07s linear infinite;
+}
+@keyframes symScroll{
+  0%  {filter:blur(0px)  brightness(1)  ;transform:translateY(0px)}
+  20% {filter:blur(3px)  brightness(.55);transform:translateY(-12px)}
+  50% {filter:blur(5px)  brightness(.35);transform:translateY(-24px)}
+  80% {filter:blur(3px)  brightness(.55);transform:translateY(-12px)}
+  100%{filter:blur(0px)  brightness(1)  ;transform:translateY(0px)}
+}
+
+/* Payline highlight bar */
+.plHighlightBar{
+  position:absolute;left:0;right:0;height:90px;pointer-events:none;z-index:3;
+  border-top:2px solid transparent;border-bottom:2px solid transparent;
+  transition:top .2s;
+}
+
+/* Win overlay */
+.winOverlay{
+  position:absolute;inset:0;z-index:20;background:rgba(0,0,0,.92);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  border-radius:8px;animation:ovFadeIn .3s ease;
+}
+@keyframes ovFadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.winEmoji{font-size:38px;animation:spinAnim 1s linear infinite}
+@keyframes spinAnim{to{transform:rotate(360deg)}}
+.winJackpot{font-size:26px;font-weight:900;color:var(--gold);letter-spacing:.12em;animation:glow 1s ease infinite alternate;font-family:'Arial Black',sans-serif}
+@keyframes glow{from{text-shadow:0 0 10px rgba(240,192,32,.5)}to{text-shadow:0 0 30px var(--gold),0 0 60px rgba(240,192,32,.4)}}
+.winNftName{font-size:14px;font-weight:700;color:#fff}
+.winRarity{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.winToken{font-family:var(--font-mono);font-size:9px;color:var(--green);background:#0a1a0a;border:1px solid rgba(34,197,94,.25);border-radius:4px;padding:5px 12px;margin:4px 0;word-break:break-all;max-width:280px;text-align:center}
+.winCloseBtn{background:var(--green);color:#000;font-weight:700;font-size:12px;padding:9px 24px;border-radius:6px;border:none;cursor:pointer;letter-spacing:.08em;margin-top:4px}
+.winCloseBtn:hover{opacity:.85}
+
+/* Circular symbols */
+.circSym{
+  border-radius:50%;overflow:hidden;border:2.5px solid #1a3a1a;background:#030803;
+  transition:border-color .15s,box-shadow .15s;flex-shrink:0;display:block;
+}
+.circSymLetter{
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-family:'Arial Black',sans-serif;border:2.5px solid;flex-shrink:0;
+}
+
+@keyframes winPop{from{transform:scale(1)}to{transform:scale(1.08)}}
+
+/* Spin area */
+.spinArea{margin-top:8px}
+.spinRow{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.infoChip{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:6px;text-align:center}
+.infoChip span{display:block;font-size:8px;color:var(--text-mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.infoChip strong{font-family:var(--font-mono);font-size:12px;color:var(--text)}
+.spinBtn{
+  flex:2;background:linear-gradient(135deg,var(--green),var(--green-dim));color:#000;
+  font-size:15px;font-weight:700;padding:14px;border-radius:var(--r-lg);border:none;cursor:pointer;
+  letter-spacing:.1em;box-shadow:0 4px 20px rgba(34,197,94,.3);transition:all .15s;
+}
+.spinBtn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 6px 28px rgba(34,197,94,.45)}
+.spinBtn:disabled{cursor:not-allowed}
+.spinBtnGoing{background:linear-gradient(135deg,#1a3a1a,var(--bg3))!important;color:var(--green)!important;animation:btnPulse .5s ease infinite alternate}
+@keyframes btnPulse{from{box-shadow:0 0 8px rgba(34,197,94,.2)}to{box-shadow:0 0 20px rgba(34,197,94,.4)}}
+.spinBtnEmpty{background:var(--bg3)!important;color:var(--text-mute)!important;box-shadow:none!important}
+.spinNote{font-size:9px;color:var(--text-mute);text-align:center;font-family:var(--font-mono);line-height:1.5}
+
+/* Paytable */
+.paytable{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:10px 12px;margin-top:8px}
+.ptTitle{font-size:8px;color:var(--text-mute);letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;font-family:var(--font-mono)}
+.ptGrid{display:flex;flex-wrap:wrap;gap:8px}
+.ptItem{display:flex;flex-direction:column;align-items:center;gap:2px}
+.ptCircLetter{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;font-family:'Arial Black',sans-serif;border:1.5px solid}
+.ptCircNFT{width:34px;height:34px;border-radius:50%;overflow:hidden;border:1.5px solid;background:var(--bg4)}
+.ptLbl{font-size:7px;text-align:center;font-family:var(--font-mono);max-width:40px;line-height:1.2}
+
+/* ── Win panel ── */
+.winPanel{flex:1;min-width:0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-xl);padding:16px;align-self:flex-start;position:sticky;top:80px}
+.winPanelTitle{font-size:13px;font-weight:600;color:var(--green);margin-bottom:3px;letter-spacing:.06em}
+.winPanelSub{font-size:9px;color:var(--text-mute);font-family:var(--font-mono);margin-bottom:12px;line-height:1.6}
+.winEmpty{font-size:11px;color:var(--text-mute);text-align:center;padding:24px 0;line-height:2.2}
+.winEmpty span{font-size:9px;color:var(--text-mute);font-family:var(--font-mono);display:block}
+.winCard{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:10px 12px;margin-bottom:8px}
+.winCard:last-of-type{margin-bottom:0}
+.winCardFresh{border-color:var(--green);animation:freshCard .5s ease}
+@keyframes freshCard{from{background:rgba(34,197,94,.12)}to{background:var(--bg3)}}
+.winCardTop{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.winCardName{font-size:11px;font-weight:600;color:var(--white)}
+.winCardRarity{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1px solid;border-radius:3px;padding:2px 6px}
+.winCardToken{font-family:var(--font-mono);font-size:8px;color:var(--green);background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 8px;margin-bottom:6px;cursor:pointer;word-break:break-all;line-height:1.5;transition:background .15s}
+.winCardToken:hover{background:var(--bg2)}
+.winCardBot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.winCardDate{font-size:8px;color:var(--text-mute);font-family:var(--font-mono)}
+.copyDiscordBtn{font-size:9px;font-weight:600;color:var(--green);background:var(--green-faint);border:1px solid rgba(34,197,94,.2);border-radius:4px;padding:3px 10px;cursor:pointer;transition:all var(--ease);white-space:nowrap}
+.copyDiscordBtn:hover{background:var(--green);color:#000}
+.copyDiscordOk{background:rgba(34,197,94,.15)!important;border-color:var(--green)!important}
+.clearBtn{font-size:9px;color:var(--text-mute);background:none;border:1px solid var(--border);border-radius:4px;padding:4px 10px;cursor:pointer;margin-top:8px;width:100%;font-family:var(--font-mono);transition:all var(--ease)}
+.clearBtn:hover{border-color:var(--red);color:var(--red)}

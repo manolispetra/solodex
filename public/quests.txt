@@ -1,0 +1,4 @@
+# SOLODEX Twitter Quests
+# Format: URL | Tweet Title
+# Example:
+# https://twitter.com/SoloDEX/status/123 | 🚀 SOLODEX is LIVE on BNB Chain!

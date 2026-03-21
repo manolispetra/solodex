@@ -1,0 +1,5 @@
+twitter=https://twitter.com/SoloDEX
+discord=https://discord.gg/solodex
+website=https://solodex.io
+bscscan=https://testnet.bscscan.com
+bscscan_mainnet=https://bscscan.com

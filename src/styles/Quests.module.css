@@ -1,0 +1,40 @@
+.panel{}
+.header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;gap:12px}
+.title{font-size:18px;font-weight:700;color:var(--white);margin-bottom:3px}
+.sub{font-size:13px;color:var(--text-dim);line-height:1.6}
+.earned{text-align:right;flex-shrink:0}
+.earnedVal{font-family:var(--mono);font-size:24px;font-weight:700;color:var(--green-bright);display:block;line-height:1}
+.earnedLabel{font-size:10px;color:var(--text-mute);letter-spacing:.1em;text-transform:uppercase}
+.earlyCard{background:var(--bg2);border:1px solid rgba(34,197,94,.14);border-radius:var(--r-lg);padding:16px 18px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;transition:border-color var(--ease)}
+.earlyCard.done{border-color:rgba(34,197,94,.08);opacity:.7}
+.earlyCard.expired{opacity:.5}
+.earlyIcon{margin-right:6px}
+.earlyTitle{font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px}
+.earlyDesc{font-size:12px;color:var(--text-dim);line-height:1.5}
+.earlyRight{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.earlyPts{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--green)}
+.earlyBtn{background:var(--green);color:#021a0c;font-weight:700;font-size:12px;padding:7px 16px;border-radius:8px;border:none;cursor:pointer;transition:opacity var(--ease);font-family:var(--font)}
+.earlyBtn:hover:not(:disabled){opacity:.88}
+.earlyBtn:disabled{opacity:.4;cursor:not-allowed}
+.doneTag{font-size:11px;font-weight:700;color:var(--green);background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:6px;padding:3px 9px;font-family:var(--mono)}
+.expiredTag{font-size:11px;color:var(--text-mute);font-family:var(--mono)}
+.countdown{font-family:var(--mono);font-size:11px;color:var(--amber)}
+.sectionLabel{font-size:10px;font-weight:700;color:var(--text-mute);letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sectionCount{color:var(--green);font-size:10px}
+.loading{font-size:13px;color:var(--text-dim);padding:24px 0;text-align:center}
+.empty{font-size:13px;color:var(--text-dim);padding:24px 0;text-align:center;line-height:1.8}
+.questList{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+.questCard{background:var(--bg2);border:1px solid rgba(34,197,94,.1);border-radius:var(--r-lg);padding:14px 16px;display:flex;align-items:center;gap:14px;transition:all var(--ease)}
+.questCard:hover{border-color:rgba(34,197,94,.22);transform:translateX(2px)}
+.questCard.done{opacity:.65}
+.questLeft{display:flex;align-items:flex-start;gap:10px;flex:1;min-width:0}
+.questTitle{font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;line-height:1.4}
+.tweetLink{font-family:var(--mono);font-size:10px;color:var(--text-mute);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px}
+.tweetLink:hover{color:var(--text-dim)}
+.questRight{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.questPts{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green)}
+.questBtn{background:rgba(29,155,240,.18);color:#60b8f8;font-size:11px;font-weight:700;padding:5px 12px;border-radius:7px;border:1px solid rgba(29,155,240,.25);cursor:pointer;transition:all var(--ease);font-family:var(--font)}
+.questBtn:hover:not(:disabled){background:rgba(29,155,240,.3);color:#fff}
+.questBtn:disabled{opacity:.4;cursor:not-allowed}
+.note{font-size:11px;color:var(--text-mute);line-height:1.7}
+.note strong{color:var(--text-dim)}
