@@ -1,4 +1,5 @@
 # SOLODEX Twitter Quests
-# Format: URL | Tweet Title
+# Format: URL | Title
+# One per line. Blank lines and # comments are ignored.
 # Example:
-# https://twitter.com/SoloDEX/status/123 | 🚀 SOLODEX is LIVE on BNB Chain!
+# https://twitter.com/SoloDEX/status/123456789 | SOLODEX testnet is LIVE on BNB Chain!

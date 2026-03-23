@@ -9,22 +9,8 @@ export default defineConfig({
     global: 'globalThis',
     'process.env': {},
   },
-  resolve: {
-    alias: {
-      // Required for WalletConnect in Vite
-      'node:buffer': 'buffer',
-      'node:process': 'process/browser',
-      'node:stream': 'stream-browserify',
-      'node:util': 'util',
-    },
-  },
   optimizeDeps: {
-    include: [
-      '@walletconnect/ethereum-provider',
-      '@walletconnect/modal',
-    ],
-    esbuildOptions: {
-      define: { global: 'globalThis' },
-    },
+    include: ['@walletconnect/ethereum-provider', '@walletconnect/modal'],
+    esbuildOptions: { define: { global: 'globalThis' } },
   },
 })

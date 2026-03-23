@@ -1,1 +1,7 @@
-{"_note":"Deploy SoloDEXIdentity.sol then update","SoloDEXIdentity":"0x0000000000000000000000000000000000000000","mintFeeWei":"3000000000000000","chainId":56}
+{
+  "_note": "Run contracts/scripts/deploy.js to populate this file",
+  "network": "bnbMainnet",
+  "chainId": 56,
+  "SoloDEXIdentity": "0x0000000000000000000000000000000000000000",
+  "mintFeeWei": "3000000000000000"
+}

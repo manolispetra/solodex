@@ -1,6 +1,6 @@
 {
-  "name": "solodex-v4-frontend",
-  "version": "4.0.0",
+  "name": "solodex-frontend",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -11,12 +11,10 @@
     "ethers": "^6.11.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "@walletconnect/ethereum-provider": "^2.13.0",
-    "@walletconnect/modal": "^2.6.2",
     "buffer": "^6.0.3",
     "process": "^0.11.10",
-    "stream-browserify": "^3.0.0",
-    "util": "^0.12.5"
+    "@walletconnect/ethereum-provider": "^2.13.0",
+    "@walletconnect/modal": "^2.6.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.0",
